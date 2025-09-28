@@ -3,4 +3,6 @@ export interface IButtonAuthProps {
   type: "text" | "link" | "default" | "primary" | "dashed" | undefined
   text: string
   disabled: boolean
+  styles?: {}
+  onClick?: () => void
 }

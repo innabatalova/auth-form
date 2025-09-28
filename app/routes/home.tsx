@@ -3,6 +3,8 @@ import { ConfigProvider, Layout, Card } from 'antd'
 
 import AuthForm from "~/features/Auth/AuthForm"
 
+import server from "~/mocks/server"
+
 export function meta({ }: Route.MetaArgs) {
   return [
     { title: "Autorization Form" },
@@ -10,13 +12,21 @@ export function meta({ }: Route.MetaArgs) {
   ]
 }
 
+if (process.env.NODE_ENV === "development") {
+  server()
+}
+
+
 export default function Home() {
   return (
     <ConfigProvider theme={{
-      token: { colorBgLayout: '#f5f5f5', fontFamily: 'SF Pro Text, sans-serif', },
+      token: { colorBgLayout: '#f5f5f5', fontFamily: 'SF Pro Text, sans-serif', controlHeightLG: 60},
       components: {
         Card: {
           bodyPadding: 0
+        },
+        Statistic: {
+          contentFontSize: 14
         },
       },
     }}
@@ -29,3 +39,5 @@ export default function Home() {
     </ConfigProvider>
   )
 }
+
+

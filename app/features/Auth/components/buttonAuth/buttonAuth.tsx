@@ -3,9 +3,9 @@ import { Button } from "antd"
 
 import type { IButtonAuthProps } from './interface'
 
-const ButtonAuth: FC<IButtonAuthProps> = ({ size, type, text, disabled }): ReactElement => {
+const ButtonAuth: FC<IButtonAuthProps> = ({ size, type, text, disabled, styles, onClick }): ReactElement => {
   return (
-    <Button type={type} htmlType="submit" block size={size} disabled={disabled}>
+    <Button type={type} htmlType="submit" block size={size} disabled={disabled} style={styles} onClick={onClick}>
       {text}
     </Button>
   )
